@@ -1,0 +1,30 @@
+# Dependencies and build output
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and OS metadata
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Local editor settings
+.vscode/*
+!.vscode/extensions.json
+
+# Only the font used by the application is tracked; other downloaded font assets stay local.
+font/*/
+!font/CangErShuYuanTiW01/
+font/CangErShuYuanTiW01/*
+!font/CangErShuYuanTiW01/CangErShuYuanTiW01-2.ttf
+!font/CangErShuYuanTiW01/仓耳字库免费商用字体授权声明.pdf
