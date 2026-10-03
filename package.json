@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node --env-file=.env server/index.mjs",
+    "dev:all": "npm run server & npm run dev",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "typecheck": "tsc -b --pretty false",
@@ -12,6 +14,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" eslint.config.js vite.config.ts \"tsconfig*.json\" index.html .prettierrc"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "@tanstack/react-query": "^5.89.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

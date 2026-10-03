@@ -58,8 +58,10 @@ export function ResearchWorkspacePage() {
   } = useDemoStore()
   const navigate = useNavigate()
   const inspirationStatus = inspirationStatuses[demoInspiration.id] ?? 'unread'
-  const createBrief = () =>
-    navigate(`/research/briefs/${createBriefFromInspiration()}/edit`)
+  const createBrief = async () => {
+    const id = await createBriefFromInspiration()
+    navigate(`/research/briefs/${id}/edit`)
+  }
 
   return (
     <div className="research-page">
@@ -124,7 +126,7 @@ export function BriefEditorPage() {
     if (!draft) return
     setSaveState('正在保存…')
     const timer = window.setTimeout(() => {
-      updateBrief({
+      void updateBrief({
         ...draft,
         updatedAt: new Date().toLocaleString('zh-CN', { hour12: false }),
       })
@@ -158,7 +160,7 @@ export function BriefEditorPage() {
   const removeMaterial = (id: string) =>
     setDraft({ ...draft, materials: draft.materials.filter((item) => item !== id) })
   const completeBrief = () => {
-    setBriefStatus(draft.id, 'completed')
+    void setBriefStatus(draft.id, 'completed')
     setDraft({ ...draft, status: 'completed' })
     navigate(`/research/briefs/${draft.id}/read`)
   }
